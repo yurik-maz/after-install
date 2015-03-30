@@ -1,0 +1,50 @@
+#update system
+sudo apt-get update
+sudo apt-get upgrade
+
+#php install
+sudo apt-get install php5-cli php5-common php-apc php-pear php5-xdebug php5-curl php5 php5-dev
+sudo apt-get install php5-xsl
+sudo apt-get install php5-intl
+sudo apt-get install mcrypt php5-mcrypt
+sudo php5enmod mcrypt
+sudo apt-get install php5-gd
+
+sudo apt-get install curl
+
+#git install & config
+sudo apt-get install git
+git config --global color.branch auto
+git config --global color.diff auto
+git config --global color.status auto
+
+#apache2 install
+sudo apt-get install apache2
+sudo a2enmod rewrite
+sudo apt-get install libapache2-mod-php5
+
+#mysql
+sudo apt-get install mysql-server
+sudo apt-get install php5-mysql
+sudo apt-get install phpmyadmin
+
+#node, bower....
+sudo apt-get install python-software-properties
+sudo apt-add-repository ppa:chris-lea/node.js
+sudo apt-get update
+sudo apt-get install nodejs
+sudo npm install -g grunt-cli
+sudo npm install -g bower
+sudo npm install -g less
+
+#composer global install
+curl -sS https://getcomposer.org/installer | php
+sudo mv composer.phar /usr/local/bin/composer
+
+#PostgreSQL
+sudo apt-get install postgresql postgresql-contrib
+
+
+#other
+sudo apt-get install xclip
+
