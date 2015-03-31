@@ -1,0 +1,2 @@
+#soft list
+sudo apt-get install filezilla

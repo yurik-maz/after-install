@@ -44,7 +44,6 @@ sudo mv composer.phar /usr/local/bin/composer
 #PostgreSQL
 sudo apt-get install postgresql postgresql-contrib
 
-
 #other
 sudo apt-get install xclip
 
