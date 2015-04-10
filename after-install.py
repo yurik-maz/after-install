@@ -13,9 +13,6 @@ def install(file):
         line = file_data.readline()
     file_data.close()
 
-    ssh_generator()
-    install_soft()
-
 
 def ssh_generator():
     email = input('Enter e-mail for ssh-key:')
@@ -28,10 +25,15 @@ def ssh_generator():
 
 
 def install_soft():
-    ch = input('Install other soft (y/n):')
-    if ch == 'y':
-        install('soft.txt')
+    install('soft.txt')
 
 
 if __name__ == "__main__":
     install('commands.txt')
+    ss = input('Generate SSH key (y/n):')
+    if ss == 'y':
+        ssh_generator()
+
+    ch = input('Install other soft (y/n):')
+    if ch == 'y':
+        install_soft()
