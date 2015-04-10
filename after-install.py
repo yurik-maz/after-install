@@ -2,6 +2,7 @@
 # -*-coding: utf-8 -*-
 __author__ = 'yurik'
 import os
+import getpass
 
 
 def install(file):
@@ -19,7 +20,7 @@ def ssh_generator():
     if email == '':
         ssh_generator()
 
-    os.system('ssh-keygen -t rsa -C "' + email + '"')
+    os.system('ssh-keygen -t rsa -C "{0}"'.format(email))
     os.system('xclip -sel clip < ~/.ssh/id_rsa.pub')
     print('Key copy to clipboard...')
 
@@ -28,8 +29,19 @@ def install_soft():
     install('soft.txt')
 
 
+def change_apache_user(user_name):
+    with open('/etc/apache2/envvars', 'r') as f:
+        data = f.read()
+        new_data = data.replace('www-data', user_name)
+
+    with open('/tmp/env.tmp', 'wt') as n:
+        n.write(new_data)
+
+    os.system('sudo mv /tmp/env.tmp /etc/apache2/envvars')
+
 if __name__ == "__main__":
     install('commands.txt')
+
     ss = input('Generate SSH key (y/n):')
     if ss == 'y':
         ssh_generator()
@@ -37,3 +49,10 @@ if __name__ == "__main__":
     ch = input('Install other soft (y/n):')
     if ch == 'y':
         install_soft()
+
+    user_name = getpass.getuser()
+    mess = 'Run apache with current user {0} (y/n):'.format(user_name)
+
+    uc = input(mess)
+    if uc == 'y':
+        change_apache_user(user_name)
