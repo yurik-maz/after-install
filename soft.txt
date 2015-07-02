@@ -7,3 +7,14 @@ sudo apt-get install mysql-workbench
 #for Yii2
 composer global require "fxp/composer-asset-plugin:1.0.0"
 
+#wine
+sudo add-apt-repository ppa:ubuntu-wine/ppa
+sudo apt-get update
+sudo apt-get install wine1.7 winetricks
+WINEARCH=win32 WINEPREFIX=~/.wine winecfg
+winetricks atmlib gdiplus msxml3 msxml6 vcrun2005 vcrun2005sp1 vcrun2008 ie6 fontsmooth-rgb gecko
+
+#sun java
+sudo add-apt-repository ppa:webupd8team/java
+sudo apt-get update
+sudo apt-get install oracle-java8-installer
