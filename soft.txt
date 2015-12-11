@@ -5,7 +5,7 @@ sudo apt-get install htop
 sudo apt-get install mysql-workbench
 
 #for Yii2
-composer global require "fxp/composer-asset-plugin:1.0.0"
+composer global require "fxp/composer-asset-plugin:~1.1.1"
 
 #wine
 sudo add-apt-repository ppa:ubuntu-wine/ppa
